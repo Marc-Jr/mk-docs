@@ -5,12 +5,12 @@ This repository contains the source files for my MkDocs documentation project, u
 ## 📚 Project Overview
 
 - **MkDocs**: A fast, simple static site generator for building project documentation.
-- **Material for MkDocs**: A professional, responsive theme built on Google's Material Design principles.
+ **Material for MkDocs**: A professional, responsive theme built on Google's Material Design principles.
 
 ## 🚀 Live Documentation
 
 You can view the live version of this documentation at:
-[https://github.com/ADORSYS-GIS/mk-docs](https://github.com/ADORSYS-GIS/mk-docs)
+[https://github.com/Marc-jr/mk-docs](https://github.com/Marc-jr/mk-docs)
 
 ## 🛠️ Local Setup
 
@@ -18,7 +18,7 @@ To run the project locally and preview the documentation:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/ADORSYS-GIS/mk-docs
+    git clone https://github.com/Marc-jr/mk-docs
     cd my-mkdocs-project
     ```
 
