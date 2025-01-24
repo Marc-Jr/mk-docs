@@ -7,6 +7,8 @@
   jobs:
     build:
        runs-on: ubuntu-22.04
+       permissions:
+         packages: write
 
        steps:
          # Checkout the   repository code
@@ -18,7 +20,7 @@
            with: 
              registry: ghcr.io
              username: ${{ github.actor }}
-             password: ${{ secrets.PAT }}
+             password: ${{ secrets.GITHUB_TOKEN }}
 
          - name: Build Project
            uses: docker/build-push-action@v4
