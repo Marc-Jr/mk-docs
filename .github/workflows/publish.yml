@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Project
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v4     
         with:
           context: .
           push: true
