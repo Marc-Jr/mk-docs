@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://marc-jr.github.io/mk-docs/multipass/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Multipass - My MkDocs Project</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My MkDocs Project</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Multipass</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../about/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/marc-jr/mk-docs/edit/main/docs/multipass.md" class="nav-link">Edit on marc-jr/mk-docs
+                                    </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-light">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#multipass-docker-vm-documentation" class="nav-link">Multipass Docker VM Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="multipass-docker-vm-documentation">Multipass Docker VM Documentation<a class="headerlink" href="#multipass-docker-vm-documentation" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to use Multipass to launch and manage Docker containers within a virtual machine (VM). Each section will guide you through various tasks, from launching a Docker VM to linking it with the host machine, and accessing Docker services.</p>
+<h3 id="1-launch-docker-vm-with-multipass">1. Launch Docker VM with Multipass<a class="headerlink" href="#1-launch-docker-vm-with-multipass" title="Permanent link">&para;</a></h3>
+<p>The first step is to launch a new virtual machine that runs Docker using Multipass. You can specify a base image such as ubuntu and install Docker inside the VM.</p>
+<div class="codehilite"><pre><span></span><code>multipass launch --name docker-vm
+</code></pre></div>
+
+<p>This command will launch a new Ubuntu instance named docker-vm. Once the VM is running, you can manually install Docker inside the VM or automate this process via a cloud-init script.</p>
+<h3 id="2-list-running-instances-with-multipass">2. List Running Instances with Multipass<a class="headerlink" href="#2-list-running-instances-with-multipass" title="Permanent link">&para;</a></h3>
+<p>To check all the running instances launched by Multipass, use the list command. This will display the instance name, state, and IP address.</p>
+<div class="codehilite"><pre><span></span><code>multipass list
+</code></pre></div>
+
+<p>You will see output like this:</p>
+<p>Name                    State             IPv4             Image
+docker-vm               Running           192.168.64.2     Ubuntu 22.04 LTS</p>
+<h3 id="3-access-the-docker-vm-shell">3. Access the Docker VM Shell<a class="headerlink" href="#3-access-the-docker-vm-shell" title="Permanent link">&para;</a></h3>
+<p>To interact with the VM directly, you can enter its shell. This allows you to run commands inside the VM as if it were your local machine.</p>
+<div class="codehilite"><pre><span></span><code>multipass shell docker-vm
+</code></pre></div>
+
+<p>Once inside, you can install Docker or manage any internal configurations.</p>
+<h3 id="4-launch-a-docker-vm-with-a-custom-name">4. Launch a Docker VM with a Custom Name<a class="headerlink" href="#4-launch-a-docker-vm-with-a-custom-name" title="Permanent link">&para;</a></h3>
+<p>You can specify the name of the virtual machine when launching it. This helps you manage multiple VMs easily.</p>
+<div class="codehilite"><pre><span></span><code>multipass launch --name docker-vm
+</code></pre></div>
+
+<p>The --name flag allows you to assign a custom name to the VM, in this case, docker-vm.</p>
+<h3 id="5-view-available-multipass-images">5. View Available Multipass Images<a class="headerlink" href="#5-view-available-multipass-images" title="Permanent link">&para;</a></h3>
+<p>If you're unsure which images you can use to launch a VM, you can view all available images using the multipass images command.</p>
+<div class="codehilite"><pre><span></span><code>multipass images
+</code></pre></div>
+
+<p>This will display a list of available images, such as Ubuntu versions, that can be used for launching new VMs.</p>
+<h3 id="6-check-running-docker-containers">6. Check Running Docker Containers<a class="headerlink" href="#6-check-running-docker-containers" title="Permanent link">&para;</a></h3>
+<p>Once Docker is installed in the VM, you can check the status of containers using the docker ps command inside the VM.</p>
+<div class="codehilite"><pre><span></span><code>docker ps
+</code></pre></div>
+
+<p>This command lists all the running Docker containers, including their names, statuses, and port mappings.</p>
+<h3 id="7-access-a-docker-container-via-portainer">7. Access a Docker Container via Portainer<a class="headerlink" href="#7-access-a-docker-container-via-portainer" title="Permanent link">&para;</a></h3>
+<p>To access a Docker container running on the VM from your host machine, you need to know the VM's IP address and the port the container is exposed on.</p>
+<p>Find the IP address of your Docker VM using:</p>
+<div class="codehilite"><pre><span></span><code>multipass list
+</code></pre></div>
+
+<p>Then, map the port of the container running in Docker (e.g., Portainer) to the host machine. If the container is running on port 9000 inside the VM, you can access it via <VM-IP>:9000 from the host.</p>
+<p>Example:</p>
+<p>http://192.168.64.2:9000
+This would allow you to access the Portainer web interface running on port 9000 of your Docker VM.</p>
+<h3 id="8-link-host-machine-with-virtual-machine">8. Link Host Machine with Virtual Machine<a class="headerlink" href="#8-link-host-machine-with-virtual-machine" title="Permanent link">&para;</a></h3>
+<p>To facilitate easier interaction between the host machine and the Docker VM, you can set up network forwarding, or mount directories from the host into the VM for file sharing. Here's how you can mount a directory:</p>
+<div class="codehilite"><pre><span></span><code>multipass mount /host/directory docker-vm:/vm/directory
+</code></pre></div>
+
+<p>This command mounts /host/directory from your local machine into /vm/directory in the virtual machine, allowing easy file access between the two systems.</p>
+<h3 id="9-execute-docker-commands-in-vm-from-host">9. Execute Docker Commands in VM from Host<a class="headerlink" href="#9-execute-docker-commands-in-vm-from-host" title="Permanent link">&para;</a></h3>
+<p>Instead of entering the VM's shell to run Docker commands, you can execute commands directly from the host machine using Multipass exec.</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">multipass</span><span class="w"> </span><span class="k">exec</span><span class="w"> </span><span class="nv">docker</span><span class="o">-</span><span class="nv">vm</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="nv">docker</span><span class="w"> </span><span class="nv">ps</span>
+</code></pre></div>
+
+<p>This command will execute the docker ps command inside the docker-vm and display the output directly on your host machine.</p>
+<h3 id="10-create-a-docker-alias-for-ease-of-use">10. Create a Docker Alias for Ease of Use<a class="headerlink" href="#10-create-a-docker-alias-for-ease-of-use" title="Permanent link">&para;</a></h3>
+<p>To simplify running Docker commands inside the VM from the host, you can create an alias that allows you to run docker commands on your host, but they are executed inside the VM.</p>
+<p>Add this alias to your .bashrc or .zshrc file:</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">alias</span><span class="w"> </span><span class="nv">docker</span><span class="o">=</span><span class="s2">&quot;multipass exec docker-vm -- docker&quot;</span>
+</code></pre></div>
+
+<p>Now, you can run any docker command as if Docker were installed locally, and it will execute inside the docker-vm:
+ <code>docker ps</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
