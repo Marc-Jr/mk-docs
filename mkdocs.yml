@@ -5,7 +5,7 @@ site_url: 'https://marc-jr.github.io/mk-docs'  # Changed to lowercase
 
 # Theme settings
 theme:
-  name: material  # Changed to match the description
+  name: bootstrap  # Changed to match the description
 
 # Navbar settings (site structure)
 nav:
