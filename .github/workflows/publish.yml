@@ -2,7 +2,7 @@ name: mk-docs deploy
 on:
   push:
     branches:
-    - master
+       - master
 
 jobs:
   build:
