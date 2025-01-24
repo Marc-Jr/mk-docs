@@ -1,32 +1,31 @@
 on:
   push:
     branches:
-      - master
+    - master
 
 jobs:
   build:
     runs-on: ubuntu-22.04
     permissions:
       packages: write
-      contents: read
 
     steps:
+      # Checkout the repository code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set repository owner to lowercase
-        run: |
-          echo "REPO_OWNER=$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-
-      - name: Login to container repository
+      - name: Logn to Container Registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push project
+      - name: Build Project
         uses: docker/build-push-action@v4
         with:
-           push: true
-           tags: ghcr.io/${{ env.REPO_OWNER }}//mk-docs:latest, ghcr.io/${{ env.REPO_OWNER }}//mk-docs:${{ github.run_number }}
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ vars.REPOSITORY }}:latest
+            ghcr.io/${{ vars.REPOSITORY }}:${{ github.run_number }}
