@@ -28,5 +28,5 @@ jobs:
       - name: Build and push project
         uses: docker/build-push-action@v4
         with:
-          push: true
-          tags: ghcr.io/${REPO_OWNER}/mk-docs:latest, ghcr.io/${REPO_OWNER}/mk-docs:${{ github.run_number }}
+           push: true
+           tags: ghcr.io/${{ env.REPO_OWNER }}//mk-docs:latest, ghcr.io/${{ env.REPO_OWNER }}//mk-docs:${{ github.run_number }}
