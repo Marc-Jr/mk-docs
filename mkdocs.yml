@@ -1,17 +1,17 @@
 # Project information
-site_name: my mkdocs project
+site_name: My MkDocs Project
 site_description: 'An example MkDocs project using the Material theme'
-site_url: 'https://Marc-jr.github.io/mk-docs'  # Change this to your site's URL
+site_url: 'https://marc-jr.github.io/mk-docs'  # Changed to lowercase
 
 # Theme settings
 theme:
-  name: bootstrap
+  name: material  # Changed to match the description
 
 # Navbar settings (site structure)
 nav:
   - Home: index.md
   - About: about.md
-  - multipass: multipass.md
+  - Multipass: multipass.md  # Capitalized for consistency
 
 # Extra settings
 markdown_extensions:
@@ -21,6 +21,6 @@ markdown_extensions:
       permalink: true
 
 # Repository configuration (for the edit link on pages)
-repo_name: Marc-Jr/mk-docs
-repo_url: https://github.com/Marc-Jr/mk-docs
+repo_name: marc-jr/mk-docs  # Changed to lowercase
+repo_url: https://github.com/marc-jr/mk-docs  # Changed to lowercase
 edit_uri: edit/main/docs/
