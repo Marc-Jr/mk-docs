@@ -36,3 +36,4 @@ jobs:
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/marc-jr/mk-docs.git
       
           mkdocs gh-deploy --force
+          
