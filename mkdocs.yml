@@ -22,5 +22,5 @@ markdown_extensions:
 
 # Repository configuration (for the edit link on pages)
 repo_name: marc-jr/mk-docs
-repo_url: https://github.com/Marc-jr/mk-docs
+repo_url: https://github.com/marc-jr/mk-docs
 edit_uri: edit/main/docs/
