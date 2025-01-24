@@ -26,5 +26,5 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.run_number }}
+            ghcr.io/${{ github.repository_owner }}/mk-docs:latest
+            ghcr.io/${{ github.repository_owner }}/mk-docs:${{ github.run_number }}
